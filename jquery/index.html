@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="library/jquery-3.5.1.min.js"></script>
+    <title>jquery test</title>
+</head>
+<body>
+    <h2 class="title">Press the 'Enter' key for some colors!</h2>
+    <main>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+        <div class="grid_item"></div>
+    </main>
+</body>
+
+<script>
+$(document).ready(function() {
+    $(document).on('keypress',function(e) {
+        $(".title").hide();
+        $("main").css("display", "grid");
+        if(e.which == 13) {
+            $(".grid_item").each((i) => {
+                let hex_code = Math.floor(Math.random()*16777215).toString(16);
+                $(`.grid_item:nth-child(${i+1})`).css("background-color", `#${hex_code}`).html(`<p>#${hex_code}</p>`);
+            });
+        }
+    });
+});
+</script>
+</html>
