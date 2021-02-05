@@ -15,6 +15,13 @@ main {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
+@media (max-width:700px){ 
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        font-size: 1.5em;
+    }
+}
 .grid_item {
     transition: 0.5s;
     display: grid;
@@ -24,7 +31,7 @@ main {
     -webkit-text-stroke: 1px black;
     color: white;
     font-weight: 700;
-    font-size: calc(0.5em + 1vw);
+    font-size: calc(1em + 1vw);
 }
 .title {
     margin: 0;

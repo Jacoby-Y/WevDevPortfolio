@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="jquery/library/jquery-3.5.1.min.js"></script>
+    <script src="libraries/jquery-3.5.1.min.js"></script>
     <title>My Portfolio</title>
 </head>
 <body>
@@ -20,11 +20,14 @@
 </body>
 <script>
 $(document).ready(function() {
-    $(".project_btn:nth-child(1)").css("background-image", "url(pictures/colors.png)")
+    $(".project_btn:nth-child(1)")
+        .css("background-image", "url(pictures/colors.png)")
         .click(() => {
-            window.location = "jquery/colors.html";
+            window.location = "colors/index.html";
         });
-    $(".project_btn:nth-child(2)").css("background-image", "url(pictures/ball_bounce.png)")
+    $(".project_btn:nth-child(2)")
+        .css("background-image", "url(pictures/ball_bounce.png)")
+        .css("background-position", "left")
         .click(() => {
             window.location = "ball_bounce/index.html";
         });
