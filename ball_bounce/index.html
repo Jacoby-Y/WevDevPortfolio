@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>Ball?</title>
+</head>
+<body>
+    <div id="setup">
+        <div>
+            <button id="finish_setup">Done!</button>
+            <h2>Input the bounce slope.</h2>
+            <input type="text" name="y" id="y">
+            <hr>
+            <input type="text" name="x" id="x">
+        </div>
+    </div>
+    <main>
+        <h2 id="coords_text">Coords: (0, 0)</h2>
+        <div id="ball"></div>
+        <div id="trace"></div>
+    </main>
+</body>
+<script>
+//>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<\\
+
+//>- Jquery setup -<\\
+$(document).ready(() => {
+    $("#finish_setup").click(() => {
+        if (!isNaN(Number($("#y").val())) && !isNaN(Number($("#x").val()))) {
+            console.log("done!");
+            y_change = Number($("#y").val());
+            x_change = Number($("#x").val());
+            loop_active = true;
+            $("main").css("display", "grid");
+            $("#setup").hide();
+        } else {
+            alert("Your input was not a number!");
+        }
+    });
+});
+
+//>- main loop -<\\
+let rnd = (num) => {
+    return Math.floor(Math.round(num));
+}
+
+let ball = $("#ball");
+let coords = {
+    x: 0,
+    y: 0,
+};
+let y_change = 5;
+let x_change = 10;
+let loop_active = false;
+let main_loop = setInterval(() => {
+    if (loop_active) {
+        let scene_size = {
+            w: ($("body")[0].clientWidth),
+            h: ($("body")[0].clientHeight),
+        }
+        
+        coords.x += x_change;
+        coords.y += y_change;
+
+        if ((coords.y + $("#ball")[0].clientHeight) > scene_size.h || (coords.y < 0)) {
+            y_change *= -1;
+        }
+        if ((coords.x + $("#ball")[0].clientWidth) > scene_size.w || (coords.x < 0)) {
+            x_change *= -1;
+        }
+
+        document.getElementById("coords_text").innerHTML = `x: ${rnd(coords.x)}<br>y: ${rnd(coords.y)}`;
+
+        $("#ball").css("left", `${coords.x}px`).css("bottom", `${coords.y}px`);
+    }
+}, 16); //clearInterval(main_loop);
+
+//>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<\\
+</script>
+</html>

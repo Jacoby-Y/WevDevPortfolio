@@ -11,7 +11,7 @@
     <h1 class="title">Hello, and welcome.<br>This is my portfolio</h1>
     <main>
         <div class="project_btn">  <div class="overlay"><p>color finder</p></div>  </div>
-        <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
+        <div class="project_btn">  <div class="overlay"><p>bouncing ball</p></div>  </div>
         <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
         <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
         <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
@@ -20,11 +20,14 @@
 </body>
 <script>
 $(document).ready(function() {
-    $(".project_btn:nth-child(1)").css("background-image", "url(pictures/colors.png)");
-    $(".project_btn:nth-child(1)").click(() => {
-        window.location = "jquery/colors.html";
-    });
-    $(".project_btn:nth-child(2)").css("background-image", "url()");
+    $(".project_btn:nth-child(1)").css("background-image", "url(pictures/colors.png)")
+        .click(() => {
+            window.location = "jquery/colors.html";
+        });
+    $(".project_btn:nth-child(2)").css("background-image", "url(pictures/ball_bounce.png)")
+        .click(() => {
+            window.location = "ball_bounce/index.html";
+        });
     $(".project_btn:nth-child(3)").css("background-image", "url()");
     $(".project_btn:nth-child(4)").css("background-image", "url()");
     $(".project_btn:nth-child(5)").css("background-image", "url()");
