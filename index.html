@@ -12,7 +12,7 @@
     <main>
         <div class="project_btn">  <div class="overlay"><p>color finder</p></div>  </div>
         <div class="project_btn">  <div class="overlay"><p>bouncing ball</p></div>  </div>
-        <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
+        <div class="project_btn">  <div class="overlay"><p>sand simulator</p></div>  </div>
         <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
         <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
         <div class="project_btn">  <div class="overlay"><p>coming soon...</p></div>  </div>
@@ -31,7 +31,11 @@ $(document).ready(function() {
         .click(() => {
             window.location = "ball_bounce/index.html";
         });
-    $(".project_btn:nth-child(3)").css("background-image", "url()");
+    $(".project_btn:nth-child(3)")
+        .css("background-image", "url(pictures/sand_sim.png)")
+        .click(() => {
+            window.location = "sand_sim/index.html";
+        });;
     $(".project_btn:nth-child(4)").css("background-image", "url()");
     $(".project_btn:nth-child(5)").css("background-image", "url()");
     $(".project_btn:nth-child(6)").css("background-image", "url()");

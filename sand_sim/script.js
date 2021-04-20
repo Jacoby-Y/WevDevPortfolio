@@ -3,7 +3,13 @@ canvas.style.backgroundColor = "rgb(60,60,60)";
 let ctx = canvas.getContext('2d');
 canvas.clientHeight = window.innerHeight;
 canvas.clientWidth = window.innerHeight;
-canvas.style = `width: ${window.innerHeight}px; height: ${window.innerHeight}px;`;
+
+if (window.innerHeight > window.innerWidth) {
+    canvas.style = `width: calc(${window.innerWidth}px - 4px); height: calc(${window.innerWidth}px - 4px);`;
+} else {
+    canvas.style = `width: calc(${window.innerHeight}px - 4px); height: calc(${window.innerHeight}px - 4px);`;
+}
+
 let canvas_sides = {
     top: 0,
     right: 99,
